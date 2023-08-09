@@ -7,7 +7,7 @@ export class FighterEntity {
 
     @Prop({ required: true })
     id: string;
-
+    
     @Prop({ required: true })
     firstName: string;
 
