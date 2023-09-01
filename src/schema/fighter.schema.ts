@@ -1,13 +1,10 @@
-import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Prop, Schema, SchemaFactory, raw } from "@nestjs/mongoose";
+import { HydratedDocument } from "mongoose";
 
 
 @Schema()
-export class FighterEntity {
+export class Fighter {
 
-    @Prop({ required: true })
-    id: string;
-    
     @Prop({ required: true })
     firstName: string;
 
@@ -39,5 +36,5 @@ export class FighterEntity {
     fightingStyles: string[];
 }
 
-export type FighterEntityDocument = HydratedDocument<FighterEntity>;
-export const FighterEntitySchema = SchemaFactory.createForClass(FighterEntity);
+export type FighterEntityDocument = HydratedDocument<Fighter>;
+export const FighterEntitySchema = SchemaFactory.createForClass(Fighter);

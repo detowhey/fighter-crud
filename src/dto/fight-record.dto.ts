@@ -4,8 +4,10 @@ export class FightRecordDto {
 
     @IsInt()
     win: number;
+
     @IsInt()
     loose: number;
+    
     @IsInt()
     draw: number;
 

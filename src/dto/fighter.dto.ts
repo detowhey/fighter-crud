@@ -1,7 +1,7 @@
 import { IsDateString, IsEmpty, IsNotEmpty, Min, MinLength, ValidateNested } from "class-validator";
-import { FightRecordDto } from "../fightRecord.dto";
+import { FightRecordDto } from "./fight-record.dto";
 
-class FighterRequest {
+export class FighterDto {
 
     @IsNotEmpty()
     @MinLength(3)
