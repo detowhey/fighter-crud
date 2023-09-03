@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory, raw } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
+import { FightRecord } from "./fight-record.schema";
 
 
 @Schema()

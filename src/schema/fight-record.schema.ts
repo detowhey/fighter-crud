@@ -1,4 +1,5 @@
-class FightRecord {
+export class FightRecord {
+
     win: number;
     loose: number;
     draw: number;

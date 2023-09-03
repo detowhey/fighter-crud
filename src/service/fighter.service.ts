@@ -1,8 +1,8 @@
 import { InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { FighterDto } from "src/dto/fighter.dto";
-import { IFighter } from "src/interface/fighter.interface";
+import { FighterDto } from "../dto/fighter.dto";
+import { IFighter } from "../interface/fighter.interface";
 
 export class FighterService {
 

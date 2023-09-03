@@ -21,9 +21,9 @@ export class GlobalException implements ExceptionFilter {
         } : {
             status: HttpStatus.INTERNAL_SERVER_ERROR,
             body: {
-                statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
                 timestamp: new Date().toISOString(),
                 path: httpAdapter.getRequestUrl(request),
+                statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
             },
         };
 

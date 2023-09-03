@@ -1,4 +1,5 @@
 import { Document } from "mongoose"
+import { FightRecord } from "../schema/fight-record.schema";
 
 export interface IFighter extends Document {
    readonly firstName: string;

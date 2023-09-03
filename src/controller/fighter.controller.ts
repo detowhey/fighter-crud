@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { FighterDto } from "src/dto/fighter.dto";
-import { FighterService } from "src/service/fighter.service";
+import { FighterDto } from "../dto/fighter.dto";
+import { FighterService } from "../service/fighter.service";
 
 @Controller("/fighter")
 export class FighterController {
