@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
 import { FighterDto } from "../dto/fighter.dto";
 import { FighterService } from "../service/fighter.service";
 
@@ -8,24 +8,41 @@ export class FighterController {
 
     @Get()
     async getAllFighters() {
-        return this.createTemplateResponse(await this.fighterService.getAllFighters(), "All fighters data found successfully");
+        return this.createTemplateResponse(
+            await this.fighterService.getAllFighters(),
+            "All fighters data found successfully"
+        );
     }
 
     @Get("/:id")
-    async getFighterById(@Param("id") fighterString: string) {
-        return this.createTemplateResponse(await this.fighterService.getFighterById(fighterString), "Fighter found sucessfully");
+    async getFighterById(@Param("id") fighterId: string) {
+        return this.createTemplateResponse(
+            await this.fighterService.getFighterById(fighterId),
+            "Fighter found sucessfully"
+        );
     }
 
     @Post()
-    async  createFighter(@Body() fighterDto: FighterDto) {
-        return this.createTemplateResponse(await this.fighterService.createFighter(fighterDto), "Fighter data create sucessfully");
+    async createFighter(@Body() fighterDto: FighterDto) {
+        return this.createTemplateResponse(
+            await this.fighterService.createFighter(fighterDto),
+            "Fighter data create sucessfully"
+        );
+    }
+
+    @Delete("/:id")
+    async name(@Param("id") fighterId: string) {
+        return this.createTemplateResponse(
+            await this.fighterService.deleteFighterById(fighterId),
+            "Fighter date delete sucessfully"
+        );
     }
 
     private createTemplateResponse(data: any, message: string) {
         return {
-            timeStamp: new Date().toISOString,
             fighter: data,
-            message: message
+            message: message,
+            timeStamp: new Date().toISOString
         }
     }
 }

@@ -9,11 +9,11 @@ export class MongodbConfigService implements MongooseOptionsFactory {
     
     createMongooseOptions(): MongooseModuleOptions | Promise<MongooseModuleOptions> {
         return {
-            uri: `mongodb://${this.buildStringEnvValue("DB_HOST")}:${this.buildStringEnvValue("DB_PORT")}/${this.buildStringEnvValue("DB_NAME")}`,
+            uri: `mongodb://${this.buildEnvValue("DB_HOST")}:${this.buildEnvValue("DB_PORT")}/${this.buildEnvValue("DB_NAME")}`,
         }
     }
 
-    private buildStringEnvValue(envName: string): string {
+    private buildEnvValue(envName: string): string {
         return this.configService.get<string>(envName);
     }
 }
