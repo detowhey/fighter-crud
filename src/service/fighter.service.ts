@@ -30,6 +30,20 @@ export class FighterService {
         }
     }
 
+    async getFighterByName(name: string) {
+        try {
+            const fighter = await this.fighterInterface.findOne({
+                where: name
+            }).exec();
+
+            if (fighter === null)
+                throw new NotFoundException("The fighter not found");
+            return fighter;
+        } catch (error) {
+            this.throwInternalServerErrorException(error);
+        }
+    }
+
     async deleteFighterById(fighterId: string): Promise<IFighter> {
         try {
             const fighter = await this.fighterInterface.findByIdAndDelete(fighterId);

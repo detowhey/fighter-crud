@@ -1,16 +1,25 @@
 import { Injectable } from "@nestjs/common";
-import { ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from "class-validator";
+import { ValidationArguments, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, registerDecorator } from "class-validator";
+import { FighterService } from "../service/fighter.service";
 
 @Injectable()
 @ValidatorConstraint({ async: true })
 export class UniqueNameValidator implements ValidatorConstraintInterface {
+    constructor(private fighterService: FighterService) { }
 
-
-    validate(value: any, validationArguments?: ValidationArguments): boolean | Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async validate(value: any): Promise<boolean> {
+        return !this.fighterService.getFighterByName(value);
     }
-    defaultMessage?(validationArguments?: ValidationArguments): string {
-        throw new Error("Method not implemented.");
-    }
-
 }
+
+export const NameIsUnique = (validationOptions: ValidationOptions) => {
+    return (object: object, property: string) => {
+        registerDecorator({
+            target: object.constructor,
+            propertyName: property,
+            options: validationOptions,
+            constraints: [],
+            validator: UniqueNameValidator,
+        });
+    };
+};
