@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  fighter-crud:
+  fighter-service:
     build:
       context: .
       network: host
     restart: always
-    container_name: fighter-crud-web-api
+    container_name: web-api
     ports:
       - 8080:8080
     networks:
@@ -17,6 +17,7 @@ services:
   mongodb:
     container_name: mongodb
     image: mongo
+    restart: always
     volumes:
       - data-db:/data/db
     networks:

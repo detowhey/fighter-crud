@@ -1,5 +1,5 @@
 export enum FightingStyles {
-    BRAZILIAN_JIT_JITSU = "Brazilian Jiu Jitsu",
+    BRAZILIAN_JIU_JITSU = "Brazilian Jiu Jitsu",
     WRESTLING = "Wrestrling",
     MUAY_THAI = "Muay thai",
     KICK_BOXING = "Kick Boxing",

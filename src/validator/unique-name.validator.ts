@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { ValidationArguments, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, registerDecorator } from "class-validator";
+import { ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, registerDecorator } from "class-validator";
 import { FighterService } from "../service/fighter.service";
 
 @Injectable()
