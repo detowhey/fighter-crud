@@ -6,6 +6,13 @@ import { FightingStyles } from "../enum/fighting-styles.enum";
 export class FighterDto {
 
     @ApiProperty({
+        description: "Id of fighter",
+        example: "507f1f77bcf86cd799439011",
+        readOnly: true
+    })
+    readonly _id: string;
+
+    @ApiProperty({
         description: "Firstname of fighter",
         required: true,
         minLength: 3,
@@ -29,8 +36,6 @@ export class FighterDto {
         description: "Nickname of fighter",
         required: false,
         example: "Nickname",
-        default: ""
-
     })
     @IsEmpty()
     nickName: string;
@@ -52,7 +57,7 @@ export class FighterDto {
     })
     @IsDateString()
     @IsNotEmpty()
-    birDate: string;
+    birthDate: string;
 
     @ApiProperty({
         description: "Height of fighter",
