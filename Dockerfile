@@ -1,5 +1,5 @@
-FROM node:18.12.1-alpine
-LABEL org.opencainters.image.authors="Herique de Freitas Almeida"
+FROM node:18.18.0-alpine
+MAINTAINER Herique de Freitas Almeida
 RUN mkdir -p /usr/src/app
 RUN chmod -R 777 /usr/src/app
 WORKDIR /usr/src/app
